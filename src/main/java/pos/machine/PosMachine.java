@@ -3,10 +3,10 @@ import java.util.*;
 
 public class PosMachine {
 
-//    public static void main(String[] args) {
-//        PosMachine posMachine = new PosMachine();
-//        System.out.println(posMachine.printReceipt(ItemDataLoader.loadBarcodes()));
-//    }
+    public static void main(String[] args) {
+        PosMachine posMachine = new PosMachine();
+        System.out.println(posMachine.printReceipt(ItemDataLoader.loadBarcodes()));
+    }
 
     private List<Item> convertToItems(List<String> barcodes) {
         LinkedList<Item> itemsWithDetail = new LinkedList<Item>();
@@ -51,7 +51,7 @@ public class PosMachine {
         }
         return totalPrice;
     }
-    
+
     public String printReceipt(List<String> barcodes) {
         List<Item> items = convertToItems(barcodes);
         Receipt receipt = calculateReceipt(items);
