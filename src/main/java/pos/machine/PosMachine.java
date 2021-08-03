@@ -51,11 +51,12 @@ public class PosMachine {
         }
         return totalPrice;
     }
-//    public String printReceipt(List<String> barcodes) {
-//        List<Item> items = convertToItems(barcodes);
-//        Receipt receipt = calculateReceipt(items);
-//        return spliceReceipt(receipt);
-//    }
+    
+    public String printReceipt(List<String> barcodes) {
+        List<Item> items = convertToItems(barcodes);
+        Receipt receipt = calculateReceipt(items);
+        return spliceReceipt(receipt);
+    }
 
     private String spliceItemDetail(Receipt receipt) {
         String itemsDetail = "";
@@ -67,5 +68,14 @@ public class PosMachine {
                     ", Subtotal: " + itemValue.getSubTotal() + " (yuan)\n";
         }
         return itemsDetail;
+    }
+
+    private String spliceReceipt(Receipt receipt) {
+        String itemsDetail = spliceItemDetail(receipt);
+        int totalPrice = receipt.getTotalPrice();
+
+        return ("***<store earning no money>Receipt***\n" + itemsDetail + "----------------------\n" +
+                "Total: " + totalPrice + " (yuan)\n" +
+                "**********************");
     }
 }
