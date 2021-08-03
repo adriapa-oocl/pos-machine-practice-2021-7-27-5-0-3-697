@@ -44,5 +44,13 @@ public class PosMachine {
         return itemsWithDetail;
     }
 
-    
+    private int calculateTotalPrice(List<Item> itemsWithDetail) {
+        int totalPrice = 0;
+        for(Item itemDetail : itemsWithDetail){
+            totalPrice += itemDetail.getSubTotal();
+        }
+        return totalPrice;
+    }
+
+
 }
