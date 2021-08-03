@@ -30,12 +30,12 @@ public class PosMachine {
         return ItemDataLoader.loadAllItemInfos();
     }
 
-//    private Receipt calculateReceipt(List<Item> itemsWithDetail) {
-//        Receipt receipt = new Receipt();
-//        receipt.setItemList(calculateItemsSubtotal(itemsWithDetail));
-//        receipt.setTotalPrice(calculateTotalPrice(itemsWithDetail));
-//        return receipt;
-//    }
+    private Receipt calculateReceipt(List<Item> itemsWithDetail) {
+        Receipt receipt = new Receipt();
+        receipt.setItemList(calculateItemsSubtotal(itemsWithDetail));
+        receipt.setTotalPrice(calculateTotalPrice(itemsWithDetail));
+        return receipt;
+    }
 
     private List<Item> calculateItemsSubtotal(List<Item> itemsWithDetail) {
         for(Item itemValue : itemsWithDetail) {
@@ -46,11 +46,9 @@ public class PosMachine {
 
     private int calculateTotalPrice(List<Item> itemsWithDetail) {
         int totalPrice = 0;
-        for(Item itemDetail : itemsWithDetail){
+        for (Item itemDetail : itemsWithDetail) {
             totalPrice += itemDetail.getSubTotal();
         }
         return totalPrice;
     }
-
-
 }
