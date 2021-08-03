@@ -51,4 +51,21 @@ public class PosMachine {
         }
         return totalPrice;
     }
+//    public String printReceipt(List<String> barcodes) {
+//        List<Item> items = convertToItems(barcodes);
+//        Receipt receipt = calculateReceipt(items);
+//        return spliceReceipt(receipt);
+//    }
+
+    private String spliceItemDetail(Receipt receipt) {
+        String itemsDetail = "";
+        for (Item itemValue : receipt.getItemList())
+        {
+            itemsDetail += "Name: "+ itemValue.getName() +
+                    ", Quantity: " + itemValue.getQuantity() +
+                    ", Unit price: " + itemValue.getUnitPrice() + " (yuan)" +
+                    ", Subtotal: " + itemValue.getSubTotal() + " (yuan)\n";
+        }
+        return itemsDetail;
+    }
 }
