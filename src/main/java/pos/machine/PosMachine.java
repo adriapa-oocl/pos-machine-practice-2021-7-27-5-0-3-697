@@ -29,4 +29,20 @@ public class PosMachine {
     private List<ItemInfo> loadAllItemsInfo(){
         return ItemDataLoader.loadAllItemInfos();
     }
+
+//    private Receipt calculateReceipt(List<Item> itemsWithDetail) {
+//        Receipt receipt = new Receipt();
+//        receipt.setItemList(calculateItemsSubtotal(itemsWithDetail));
+//        receipt.setTotalPrice(calculateTotalPrice(itemsWithDetail));
+//        return receipt;
+//    }
+
+    private List<Item> calculateItemsSubtotal(List<Item> itemsWithDetail) {
+        for(Item itemValue : itemsWithDetail) {
+            itemValue.setSubTotal(itemValue.getQuantity()*itemValue.getUnitPrice());
+        }
+        return itemsWithDetail;
+    }
+
+    
 }
